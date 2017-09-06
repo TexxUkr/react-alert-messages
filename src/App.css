@@ -1,0 +1,132 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.alert-box {
+  width: 264px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(34, 37, 41, 0.88);
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 12px;
+  border-top: 1px solid rgb(68, 74, 82);
+  border-bottom : 1px solid rgb(68, 74, 82);
+}
+
+.alert-box-icon {
+  font-size: 16px;
+  line-height: 18px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  align-self: flex-start;
+}
+
+.alert-box-icon-error {
+  color: rgb(234,79, 107);
+}
+
+.alert-box-icon-check {
+  color: rgb(74, 199, 100);
+}
+
+.alert-box-icon-query {
+  color: rgb(248,167, 64);
+}
+
+.alert-box-icon-warning {
+  color: rgb(248,167, 64);
+}
+
+.alert-box-icon-info {
+  color: white;
+}
+
+.alert-box-title {
+  color: white;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  display: block;
+  line-height: 18px;
+  padding-top: 1px;
+}
+
+.alert-box-message {
+   box-sizing: border-box;
+   display: block;
+   height: 18px;
+   color: rgba(255, 255, 255, 0.6);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   padding-left: 32px;
+   padding-right: 32px;
+
+}
+
+.alert-box-message-unhidden {
+   box-sizing: border-box;
+   display: block;
+   color: rgba(255, 255, 255, 0.6);
+   padding-left: 32px;
+   padding-right: 32px;
+  /* width: 100%; */
+}
+
+.alert-box-button {
+  color: white;
+  padding-left: 8px;
+  padding-right: 1px;
+  align-self: flex-start;
+}
+
+.alert-box-top {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.alert-box-top-left{
+  flex-direction: row;
+  display: flex;
+}
+
+.buttons {
+  flex-direction: row;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.main {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.btn {
+  margin-right: 10px;
+}

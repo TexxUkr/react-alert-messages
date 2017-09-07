@@ -18,9 +18,6 @@ iconsMapping.set('warning', MdWarning);
 iconsMapping.set('default', null);
 
 const Icon = (props) => {
-    
-    try {
-
         let type = 'default';
         if (iconsMapping.has(props.type)) type = props.type;
         
@@ -30,11 +27,6 @@ const Icon = (props) => {
                 {iconsMapping.get(type)()}
             </AlertBoxIconTypeStyle>
         );
-
-    } catch (err) {
-        console.log('Icon error: ' + err)
-        return null;
-    }
 }
 
 const AlertBoxIconTypeStyle = styled.section`

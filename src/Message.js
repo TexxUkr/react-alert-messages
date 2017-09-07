@@ -8,24 +8,17 @@ const Message = (props) => {
         if(props.fullView) className="";
        
         return (
-            <AlertBoxMessage className={className}>
+            <AlertBoxMessageStyle className={className}>
                {props.message}
-            </AlertBoxMessage>
+            </AlertBoxMessageStyle>
         );
     } catch (err) {
         console.log('Message error: ' + err)
         return null;
     }
 }
-const AlertBoxMessageUnhidden = styled.section`
-   box-sizing: border-box;
-   display: block;
-   color: rgba(255, 255, 255, 0.6);
-   padding-left: 32px;
-   padding-right: 32px;
 
-`
-const AlertBoxMessage = styled.section`
+const AlertBoxMessageStyle = styled.section`
    box-sizing: border-box;
    display: block;
    color: rgba(255, 255, 255, 0.6);

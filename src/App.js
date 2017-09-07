@@ -20,9 +20,9 @@ class App extends Component {
 
   /* creates a new one alert box react element and adds it to the strorage */
   createToasterAlertBox(props) {
-    let id = this.state.elementId++;
-    //console.log (props);
-    this.state.alertsArray.set(id,
+    let id = this.state.elementId;
+    let alertsArray = new Map(this.state.alertsArray);
+    alertsArray.set(id,
       <div key={id}>
         < ToasterAlertBox
           id={id}
@@ -33,8 +33,11 @@ class App extends Component {
         />
       </div>
     )
-    //console.log(this.state.alertsArray.size);
-    this.setState({})
+
+    this.setState({
+      alertsArray: alertsArray,
+      elementId: ++id
+    })
   };
 
   clearAllToasterAlertBoxes() {
@@ -48,10 +51,11 @@ class App extends Component {
 
   /* removes an alert box react element from the strorage; rerenders */
   onClose(id) {
-    //console.log('closing ' + id);
-    if (this.state.alertsArray.has(id)) {
-      this.state.alertsArray.delete(id);
-      this.setState({})
+    let alertsArray = new Map(this.state.alertsArray);
+    if (alertsArray.has(id)) {alertsArray.delete(id);
+      this.setState({
+        alertsArray: alertsArray,
+      })
     } else (console.log('unknown id:' + id));
   }
 
@@ -59,7 +63,6 @@ class App extends Component {
 
   /* render buttons that calls functions to create alert boxes with corresponding props; renders the elements from the storage */
   render() {
-   
     try {
       let element = [];
       for (let boxelemetn of this.state.alertsArray.values()) {
@@ -67,7 +70,7 @@ class App extends Component {
       }
 
       return (
-        <Main>
+        <MainStyle>
           <h3> Overview </h3>
           <p> This component allows you to show notifications after user actions, such as creation, deletion or modification of entities in your application. </p>
           < Buttons 
@@ -77,20 +80,15 @@ class App extends Component {
           <div>
             <Head element={element} clearAll={this.clearAllToasterAlertBoxes.bind(this)}/>
           </div>
-        </Main>
+        </MainStyle>
       );
     } catch (err) { }
   }
 }
 
-const Main = styled.section`
+const MainStyle = styled.section`
   padding-left: 10px;
   padding-top: 10px;
   `
-
-const Results = styled.section`
-`
-
-
 
 export default App;

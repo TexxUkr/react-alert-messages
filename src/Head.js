@@ -5,16 +5,18 @@ const Head = (props) => {
     if (props.element.length === 0) return null;
     return (
         <div>
-            <AlertBoxTopInfo>
+            <AlertBoxTopInfoStyle>
              {props.element.length} notifications
-             <AlertBoxClearAll onClick={props.clearAll}> Hide All </AlertBoxClearAll>
-            </AlertBoxTopInfo>
+             <AlertBoxClearAllStyle onClick={props.clearAll}> Hide All </AlertBoxClearAllStyle>
+            </AlertBoxTopInfoStyle>
+            <AlertBoxesViewStyle>
              {props.element}
+            </AlertBoxesViewStyle>
           </div>
     )
 }
 
-const AlertBoxTopInfo = styled.section`
+const AlertBoxTopInfoStyle = styled.section`
   width: 264px;
   color: rgba(255, 255, 255, 0.6);
   line-height: 20px;
@@ -32,9 +34,16 @@ const AlertBoxTopInfo = styled.section`
   justify-content: space-between;
   align-items: flex-start;
   `
-  
-  const AlertBoxClearAll = styled.section`
+
+  const AlertBoxClearAllStyle = styled.section`
   color: white;
+  `
+
+  const AlertBoxesViewStyle = styled.section`
+  width: 285px;
+  max-height: 60vh;
+  overflow: auto;
+  overflow-x: hidden;
   `
 
   export default Head;

@@ -61,6 +61,7 @@ const Buttons = (props) => {
 
 const ButtonsStyle = styled.section`
   flex-direction: row;
+  flex-flow: row wrap; 
   display: flex;
   align-items: flex-start;
   margin-bottom: 10px;

@@ -6,9 +6,9 @@ const Button = (props) => {
     try {
         //console.log('Button is here. props are:' + props.id);
         return (
-            <AlertBoxButton>
+            <AlertBoxButtonStyle>
                <MdClose onClick={props.onClose.bind(props.id)}/>
-            </AlertBoxButton>
+            </AlertBoxButtonStyle>
         );
     } catch (err) {
         console.log('Button error: ' + err)
@@ -16,7 +16,7 @@ const Button = (props) => {
     }
 }
 
-const AlertBoxButton = styled.section`
+const AlertBoxButtonStyle = styled.section`
  color: white;
  padding-left: 8px;
  padding-right: 1px;

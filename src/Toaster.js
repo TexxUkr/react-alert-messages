@@ -3,6 +3,7 @@ import Icon from './Icon.js';
 import Title from './Title.js';
 import Message from './Message.js';
 import Button from './Button.js';
+import styled from 'styled-components';
 
 
 /* a component with a state that stores the state to show or not a full view with uncut message */
@@ -26,18 +27,16 @@ class ToasterAlertBox extends Component {
     try {
         //console.log('TasterAlertBox is here. props are:' + this.props.type +' '+ this.props.title +' '+ this.props.message);
         return (
-            <div className="alert-box" key = {this.props.id} onClick = {this.onOpenFull.bind(this)}>
-                <div className = "alert-box-top">
-                    <div className = "alert-box-top-left">
-                        <div className = "alert-box-icon">
+            <AlertBoxStyle key = {this.props.id} onClick = {this.onOpenFull.bind(this)}>
+                <AlertBoxTopStyle>
+                    <AlertBoxTopLeftStyle>
                             <Icon type = {this.props.type}/>
-                        </div>
                         <Title title = {this.props.title}/>
-                    </div>
+                    </AlertBoxTopLeftStyle>
                     <Button onClose = {this.props.onClose} id={this.props.id}/>
-                </div>
+                </AlertBoxTopStyle>
                 <Message message = {this.props.message} fullView = {this.state.fullView}/>
-            </div>
+            </AlertBoxStyle>
         );
     } catch (err) {
         console.log('ToasterAlertBox error: ' + err)
@@ -46,6 +45,31 @@ class ToasterAlertBox extends Component {
   }
 
 }
+
+const AlertBoxStyle = styled.section`
+  width: 264px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(34, 37, 41, 0.88);
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 12px;
+  border-top: 1px solid rgb(68, 74, 82);
+  border-bottom : 1px solid rgb(68, 74, 82);
+`
+
+const AlertBoxTopStyle =  styled.section`
+ flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+`
+const AlertBoxTopLeftStyle = styled.section`
+  flex-direction: row;
+  display: flex;
+`
+
 
 ToasterAlertBox.propTypes = {
     type: React.PropTypes.string,

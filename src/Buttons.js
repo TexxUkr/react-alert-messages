@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 const Buttons = (props) => {
 
@@ -34,7 +35,7 @@ const Buttons = (props) => {
     }
 
     return (
-            <div className="buttons">
+            <ButtonsStyle>
                 <div>
                     <button className="btn btn-primary btn-sm" onClick={ () =>{ props.createToasterAlertBox(objPropsWarning)}}> Create a warning box </button>
                 </div>
@@ -53,9 +54,16 @@ const Buttons = (props) => {
                 <div>
                     <button className="btn btn-danger btn-sm" onClick={ () => {props.clearToasterAlertBox()}}> Clear all the boxes </button>
                 </div>
-            </div>
+            </ButtonsStyle>
         )
     }
 
+
+const ButtonsStyle = styled.section`
+  flex-direction: row;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+`
 
 export default Buttons;

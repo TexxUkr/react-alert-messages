@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import ToasterAlertBox from './Toaster.js';
 import Buttons from './Buttons.js';
+import Head from './Head.js';
+import styled from 'styled-components';
+
+
 
 
 
@@ -33,7 +37,7 @@ class App extends Component {
     this.setState({})
   };
 
-  clearToasterAlertBox() {
+  clearAllToasterAlertBoxes() {
     //this.state.alertsArray = new Map(); // a storage - collection of alert boxes created and not closed
     // alert boxes id counter. probably need to add overflow actions in some way
     this.setState({
@@ -51,6 +55,8 @@ class App extends Component {
     } else (console.log('unknown id:' + id));
   }
 
+  
+
   /* render buttons that calls functions to create alert boxes with corresponding props; renders the elements from the storage */
   render() {
    
@@ -61,25 +67,30 @@ class App extends Component {
       }
 
       return (
-        <div className="main">
+        <Main>
           <h3> Overview </h3>
           <p> This component allows you to show notifications after user actions, such as creation, deletion or modification of entities in your application. </p>
           < Buttons 
             createToasterAlertBox={this.createToasterAlertBox.bind(this)} 
-            clearToasterAlertBox={this.clearToasterAlertBox.bind(this)}
+            clearToasterAlertBox={this.clearAllToasterAlertBoxes.bind(this)}
           />
           <div>
-          
+            <Head element={element} clearAll={this.clearAllToasterAlertBoxes.bind(this)}/>
           </div>
-
-          <div className="results">
-            {element}
-          </div>
-        </div>
-
+        </Main>
       );
     } catch (err) { }
   }
 }
+
+const Main = styled.section`
+  padding-left: 10px;
+  padding-top: 10px;
+  `
+
+const Results = styled.section`
+`
+
+
 
 export default App;

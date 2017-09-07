@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 var MdCancel = require('react-icons/lib/md/cancel');
 var MdCheckCircle = require('react-icons/lib/md/check-circle');
@@ -25,9 +26,9 @@ const Icon = (props) => {
         
         //console.log('Icon is here. props are:' + type);
         return (
-            <div className={('alert-box-icon' + '-' + type)}>
+            <AlertBoxIconTypeStyle type={type}>
                 {iconsMapping.get(type)()}
-            </div>
+            </AlertBoxIconTypeStyle>
         );
 
     } catch (err) {
@@ -35,5 +36,21 @@ const Icon = (props) => {
         return null;
     }
 }
+
+const AlertBoxIconTypeStyle = styled.section`
+  font-size: 16px;
+  line-height: 18px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  align-self: flex-start;
+  color: ${props => {
+      if (props.type === 'error') return ('rgb(234,79, 107)')
+      if (props.type === 'check') return ('rgb(74, 199, 100)')
+      if (props.type === 'query') return ('rgb(248,167, 64)')
+      if (props.type === 'warning') return ('rgb(248,167, 64)')
+      if (props.type === 'info') return ('white')
+    }};
+  `
 
 export default Icon;

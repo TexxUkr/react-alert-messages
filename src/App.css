@@ -22,7 +22,7 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
+/*
 .alert-box {
   width: 264px;
   padding-left: 12px;
@@ -93,7 +93,6 @@
    color: rgba(255, 255, 255, 0.6);
    padding-left: 32px;
    padding-right: 32px;
-  /* width: 100%; */
 }
 
 .alert-box-button {
@@ -129,4 +128,4 @@
 
 .btn {
   margin-right: 10px;
-}
+}*/

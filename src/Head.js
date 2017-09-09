@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+
 const Head = (props) => {
     if (props.element.length === 0) return null;
     return (
         <div>
             <AlertBoxTopInfoStyle>
              {props.element.length} notifications
-             <AlertBoxClearAllStyle onClick={props.clearAll}> Hide All </AlertBoxClearAllStyle>
+             <AlertBoxClearAllStyle >
+                <button style= {buttonStyle} className="test" 
+                onClick={props.clearAll}> Hide All </button>
+             </AlertBoxClearAllStyle>
             </AlertBoxTopInfoStyle>
             <AlertBoxesViewStyle>
              {props.element}
@@ -15,6 +19,12 @@ const Head = (props) => {
           </div>
     )
 }
+
+
+const buttonStyle = {
+    backgroundColor: 'rgb(34, 37, 41)',
+    border: '0px'  
+};
 
 const AlertBoxTopInfoStyle = styled.section`
   width: 264px;
@@ -36,7 +46,10 @@ const AlertBoxTopInfoStyle = styled.section`
   `
 
   const AlertBoxClearAllStyle = styled.section`
-  color: white;
+  color: white; 
+  &:hover .test {
+     color: rgba(255, 255, 255, 0.6);
+  }
   `
 
   const AlertBoxesViewStyle = styled.section`

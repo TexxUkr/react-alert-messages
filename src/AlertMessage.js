@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const Message = (props) => {
+
+/*
+    a stateless and self styled element that returns a message of the alert box
+    if fullView props is set then message is shown uncut
+*/
+
+const AlertMessage = (props) => {
     try {
         if (props.message === null) return null;
          let className="needToHide";
@@ -33,4 +39,4 @@ const AlertBoxMessageStyle = styled.section`
 
 `
 
-export default Message;
+export default AlertMessage;

@@ -1,11 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 
+/*
+
+creates a head block with alerts info
+and alerts shown below the head block
+blocks are shown in the bottom right of the window
+component is stateles and self styled
+
+The desired view is:
++---------------------------------+
+|  amount of alerts  clear button |
++---------------------------------+
++---------------------------------+
+|  alert box 0                    |
++---------------------------------+
+...................................
++---------------------------------+
+|  alert box n                    |
++---------------------------------+
+
+*/
+
 const Head = (props) => {
     if (props.element.length === 0) return null;
+    let elementsReverse = props.element.slice().reverse();
     return (
-        <div>
+        <div style = {alertsWindow}>
             <AlertBoxTopInfoStyle>
              {props.element.length} notifications
              <AlertBoxClearAllStyle >
@@ -14,12 +36,17 @@ const Head = (props) => {
              </AlertBoxClearAllStyle>
             </AlertBoxTopInfoStyle>
             <AlertBoxesViewStyle>
-             {props.element}
+             {elementsReverse}
             </AlertBoxesViewStyle>
           </div>
     )
 }
 
+const alertsWindow = {
+  position: 'absolute',
+  bottom: '0',
+  right: '0'
+}
 
 const buttonStyle = {
     backgroundColor: 'rgb(34, 37, 41)',

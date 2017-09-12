@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
-import './App.css';
-import ToasterAlertBox from './Toaster.js';
-import Buttons from './Buttons.js';
+import AlertBox from './AlertBox.js';
+import ButtonsBar from './ButtonsBar.js';
 import Head from './Head.js';
 import styled from 'styled-components';
 
+/*
+Class App renders main info, a bar of buttons (ButtonsBar) - actions to create corresponding alerts and clear alerts, 
+alerts window - (Head) with totla info on alerts and alerts elements as an array set in App class state
+Class App defines methods to create alert, delete it and delet all the alerts - all methods changes the class state
+Class App is a self styled 
 
+The desired view/positioning in window is:
++---------------------------------+
+|main info                        |
+|buttons bar(ButtonsBar)          |
+|              alerts window(Head)|
++---------------------------------+
 
+*/
 
 
 class App extends Component {
@@ -19,17 +30,17 @@ class App extends Component {
   }
 
   /* creates a new one alert box react element and adds it to the strorage */
-  createToasterAlertBox(props) {
+  createAlertBox(props) {
     let id = this.state.elementId;
     let alertsArray = new Map(this.state.alertsArray);
     alertsArray.set(id,
       <div key={id}>
-        < ToasterAlertBox
+        < AlertBox
           id={id}
           type={props.type}
           title={props.title}
           message={props.message}
-          onClose={this.onClose.bind(this, id)}
+          onClose={this.onAlertClose.bind(this, id)}
         />
       </div>
     )
@@ -40,7 +51,7 @@ class App extends Component {
     })
   };
 
-  clearAllToasterAlertBoxes() {
+  clearAllAlertBoxes() {
     //this.state.alertsArray = new Map(); // a storage - collection of alert boxes created and not closed
     // alert boxes id counter. probably need to add overflow actions in some way
     this.setState({
@@ -50,7 +61,7 @@ class App extends Component {
   }
 
   /* removes an alert box react element from the strorage; rerenders */
-  onClose(id) {
+  onAlertClose(id) {
     let alertsArray = new Map(this.state.alertsArray);
     if (alertsArray.has(id)) {alertsArray.delete(id);
       this.setState({
@@ -73,12 +84,12 @@ class App extends Component {
         <MainStyle>
           <h3> Overview </h3>
           <p> This component allows you to show notifications after user actions, such as creation, deletion or modification of entities in your application. </p>
-          < Buttons 
-            createToasterAlertBox={this.createToasterAlertBox.bind(this)} 
-            clearToasterAlertBox={this.clearAllToasterAlertBoxes.bind(this)}
+          < ButtonsBar 
+            createAlertBox={this.createAlertBox.bind(this)} 
+            clearAllAlerts={this.clearAllAlertBoxes.bind(this)}
           />
           <div>
-            <Head element={element} clearAll={this.clearAllToasterAlertBoxes.bind(this)}/>
+            <Head element={element} clearAll={this.clearAllAlertBoxes.bind(this)}/>
           </div>
         </MainStyle>
       );

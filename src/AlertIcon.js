@@ -1,5 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
+/*
+    a stateless and self styled element that returns an icon corresponds to the alert type
+    icon is a react icon that could be loaded from react-icons
+    mapping of icons and types are done as iconsMapping Map objects
+*/
 
 var MdCancel = require('react-icons/lib/md/cancel');
 var MdCheckCircle = require('react-icons/lib/md/check-circle');
@@ -17,7 +23,7 @@ iconsMapping.set('query', MdQuery);
 iconsMapping.set('warning', MdWarning);
 iconsMapping.set('default', null);
 
-const Icon = (props) => {
+const AlertIcon = (props) => {
         let type = 'default';
         if (iconsMapping.has(props.type)) type = props.type;
         
@@ -45,4 +51,4 @@ const AlertBoxIconTypeStyle = styled.section`
     }};
   `
 
-export default Icon;
+export default AlertIcon;

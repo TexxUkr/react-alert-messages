@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 var MdClose = require('react-icons/lib/md/close');
 
-const Button = (props) => {
+const AlertCloseButton = (props) => {
     try {
-        //console.log('Button is here. props are:' + props.id);
         return (
             <AlertBoxButtonStyle>
                 <button style= {buttonStyle} className="test" onClick={props.onClose.bind(props.id)}>
@@ -30,4 +29,4 @@ const AlertBoxButtonStyle = styled.section`
  align-self: flex-start;
 `
 
-export default Button;
+export default AlertCloseButton;

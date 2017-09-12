@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const Title = (props) => {
+/*
+    a stateless and self styled element that returns a title of the alert in the alert box
+*/
+
+const AlertTitle = (props) => {
     try {
         if (props.title === null) return null;
         //console.log('Title is here. props are:' + props.title);
@@ -25,4 +29,4 @@ const AlertBoxTitleStyle = styled.section`
   padding-top: 1px;
 `
 
-export default Title;
+export default AlertTitle;

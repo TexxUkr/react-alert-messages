@@ -7,7 +7,9 @@ const Button = (props) => {
         //console.log('Button is here. props are:' + props.id);
         return (
             <AlertBoxButtonStyle>
-               <MdClose onClick={props.onClose.bind(props.id)}/>
+                <button style= {buttonStyle} className="test" onClick={props.onClose.bind(props.id)}>
+                    <MdClose/>
+                </button>
             </AlertBoxButtonStyle>
         );
     } catch (err) {
@@ -15,6 +17,11 @@ const Button = (props) => {
         return null;
     }
 }
+
+const buttonStyle = {
+    backgroundColor: 'rgba(34, 37, 41, 0)',
+    border: '0px'  
+};
 
 const AlertBoxButtonStyle = styled.section`
  color: white;

@@ -7,12 +7,16 @@ import styled from 'styled-components';
     mapping of icons and types are done as iconsMapping Map objects
 */
 
+// defining icons
+
 var MdCancel = require('react-icons/lib/md/cancel');
 var MdCheckCircle = require('react-icons/lib/md/check-circle');
 var MdError = require('react-icons/lib/md/error-outline');
 var MdInfo = require('react-icons/lib/md/info-outline');
 var MdQuery = require('react-icons/lib/md/query-builder');
 var MdWarning = require('react-icons/lib/md/warning');
+
+// mapping icons to type of alert
 
 let iconsMapping = new Map();
 iconsMapping.set('cancel', MdCancel);

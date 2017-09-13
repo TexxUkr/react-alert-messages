@@ -45,7 +45,11 @@ const Head = (props) => {
 const alertsWindow = {
   position: 'absolute',
   bottom: '0',
-  right: '0'
+  right: '20',
+  //width: '264px',
+  //maxHeight: '60vh',
+  //overflow: 'auto',
+  //overflowX: 'hidden'
 }
 
 const buttonStyle = {
@@ -80,7 +84,7 @@ const AlertBoxTopInfoStyle = styled.section`
   `
 
   const AlertBoxesViewStyle = styled.section`
-  width: 285px;
+  width: 264px;
   max-height: 60vh;
   overflow: auto;
   overflow-x: hidden;

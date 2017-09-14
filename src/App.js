@@ -62,7 +62,8 @@ class App extends Component {
 
   /* removes an alert box react element from the strorage; rerenders */
   onAlertClose(id) {
-    let alertsArray = new Map(this.state.alertsArray);
+    let alertsArray = new Map(this.state.alertsArray);  
+    console.log (alertsArray); 
     if (alertsArray.has(id)) {alertsArray.delete(id);
       this.setState({
         alertsArray: alertsArray,

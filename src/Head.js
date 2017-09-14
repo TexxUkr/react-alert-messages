@@ -44,8 +44,8 @@ const Head = (props) => {
 
 const alertsWindow = {
   position: 'absolute',
-  bottom: '0',
-  right: '20',
+  bottom: '0px',
+  right: '20px',
   //width: '264px',
   //maxHeight: '60vh',
   //overflow: 'auto',

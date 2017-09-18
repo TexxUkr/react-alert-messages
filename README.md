@@ -10,7 +10,13 @@ To deploy:
 - open 127.0.0.1:3000 in browser  (tested with Chrome and Firefox)
 - enjoy
 
+To change:
 
+- each 'logic' js files have self-explained comments
+- definitions of type of messages and corresponding text are set in ButtonsBar.js
+- definitions of icons correspond to alert types is set in Icon.js
+
+---------------------------------------------------------------------------------------------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

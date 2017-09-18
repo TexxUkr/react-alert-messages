@@ -16,6 +16,7 @@ To change:
 - definitions of type of messages and corresponding text are set in ButtonsBar.js
 - definitions of icons correspond to alert types is set in Icon.js
 
+Thanks
 ---------------------------------------------------------------------------------------------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

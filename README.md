@@ -1,9 +1,13 @@
-This project creates notifications dom elements.
+
+This project creates various types of notification dom elements.
+
 To deploy:
-- upload repository to %some_folder%
-- cd %some_folder%
+
+- git clone https://github.com/TexxUkr/react-alert-messages
+- cd react-alert-messages
 - npm install
 - npm start
+- open 127.0.0.1:3000 in browser
 - enjoy
 
 

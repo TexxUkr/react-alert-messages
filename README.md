@@ -7,7 +7,7 @@ To deploy:
 - cd react-alert-messages
 - npm install
 - npm start
-- open 127.0.0.1:3000 in browser
+- open 127.0.0.1:3000 in browser  (tested with Chrome and Firefox)
 - enjoy
 
 

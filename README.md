@@ -1,12 +1,23 @@
-This project creates notifications dom elements.
+
+This project creates various types of notification dom elements.
+
 To deploy:
-- upload repository to %some_folder%
-- cd %some_folder%
+
+- git clone https://github.com/TexxUkr/react-alert-messages
+- cd react-alert-messages
 - npm install
 - npm start
+- open 127.0.0.1:3000 in browser  (tested with Chrome and Firefox)
 - enjoy
 
+To change:
 
+- each 'logic' js files have self-explained comments
+- definitions of type of messages and corresponding text are set in ButtonsBar.js
+- definitions of icons correspond to alert types is set in Icon.js
+
+Thanks
+---------------------------------------------------------------------------------------------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

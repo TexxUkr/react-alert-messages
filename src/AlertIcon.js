@@ -15,44 +15,41 @@ var MdError = require('react-icons/lib/md/error-outline');
 var MdInfo = require('react-icons/lib/md/info-outline');
 var MdQuery = require('react-icons/lib/md/query-builder');
 var MdWarning = require('react-icons/lib/md/warning');
+var Default = require ('react-icons/lib/fa/flask')
 
-// mapping icons to type of alert
+// mapping icons and colors to type of alert
 
 let iconsMapping = new Map();
-iconsMapping.set('cancel', MdCancel);
-iconsMapping.set('check', MdCheckCircle);
-iconsMapping.set('error', MdError);
-iconsMapping.set('info', MdInfo);
-iconsMapping.set('query', MdQuery);
-iconsMapping.set('warning', MdWarning);
-iconsMapping.set('default', null);
+iconsMapping.set('cancel', { icon: MdCancel, color: 'white' });
+iconsMapping.set('check', { icon: MdCheckCircle, color: 'rgb(74, 199, 100)' });
+iconsMapping.set('error', { icon: MdError, color: 'rgb(234,79, 107)' });
+iconsMapping.set('info', { icon: MdInfo, color: 'lightblue' });
+iconsMapping.set('query', { icon: MdQuery, color: 'rgb(248,167, 64)' });
+iconsMapping.set('warning', { icon: MdWarning, color: 'rgb(248,167, 64)' });
+iconsMapping.set('default', { icon: Default, color: 'grey'});
 
 const AlertIcon = (props) => {
-        let type = 'default';
-        if (iconsMapping.has(props.type)) type = props.type;
-        
-        //console.log('Icon is here. props are:' + type);
-        return (
-            <AlertBoxIconTypeStyle type={type}>
-                {iconsMapping.get(type)()}
-            </AlertBoxIconTypeStyle>
-        );
+    if (props == null ) return null;
+    //let type = iconsMapping.has(props.type) ? props.type : 'default';
+    return (
+        <section className={props.className} type= { iconsMapping.has(props.type) ? props.type : 'default'}>
+            { 
+                iconsMapping.get( 
+                    iconsMapping.has(props.type) ? props.type : 'default'
+                ).icon()
+            }
+        </section>
+    );
 }
 
-const AlertBoxIconTypeStyle = styled.section`
+const AlertIconStyled = styled(AlertIcon) `
   font-size: 16px;
   line-height: 18px;
   padding-bottom: 2px;
   padding-left: 8px;
   padding-right: 8px;
   align-self: flex-start;
-  color: ${props => {
-      if (props.type === 'error') return ('rgb(234,79, 107)')
-      if (props.type === 'check') return ('rgb(74, 199, 100)')
-      if (props.type === 'query') return ('rgb(248,167, 64)')
-      if (props.type === 'warning') return ('rgb(248,167, 64)')
-      if (props.type === 'info') return ('white')
-    }};
+  color: ${ props => { return iconsMapping.get(props.type).color }};
   `
 
-export default AlertIcon;
+export default AlertIconStyled;

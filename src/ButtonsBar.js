@@ -15,7 +15,7 @@ The desired view is:
 */
 
 
-const ButtonsBar = (props) => {
+const ActionButtonsBar = (props) => {
 
     /* just definitions of props for various type of aler boxes creation */
     let objPropsWarning = {
@@ -48,10 +48,16 @@ const ButtonsBar = (props) => {
         message: null
     }
 
+     let objPropsDefault = {
+        type: 'default',
+        title: 'This is a default message',
+        message: 'something that could be added and investigated'
+    }
+
     /* defines action buttons and connects to the actions and alerts */
 
     return (
-            <ButtonsStyle>
+        <section className = { props.className }>
                 <div>
                     <button className="btn btn-primary btn-sm" onClick={ () =>{ props.createAlertBox(objPropsWarning)}}> Create a warning box </button>
                 </div>
@@ -68,14 +74,17 @@ const ButtonsBar = (props) => {
                     <button className="btn btn-primary btn-sm" onClick={() => { props.createAlertBox(objPropsInfo)}}> Create an info box </button>
                 </div>
                 <div>
+                    <button className="btn btn-primary btn-sm" onClick={ () =>{ props.createAlertBox(objPropsDefault)}}> Create a default box </button>
+                </div>
+                <div>
                     <button className="btn btn-danger btn-sm" onClick={ () => {props.clearAllAlerts()}}> Clear all the boxes </button>
                 </div>
-            </ButtonsStyle>
+        </section>
         )
     }
 
 
-const ButtonsStyle = styled.section`
+const ActionButtonsStyled = styled(ActionButtonsBar)`
   flex-direction: row;
   flex-flow: row wrap; 
   display: flex;
@@ -83,4 +92,4 @@ const ButtonsStyle = styled.section`
   margin-bottom: 10px;
 `
 
-export default ButtonsBar;
+export default ActionButtonsStyled;

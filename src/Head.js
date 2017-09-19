@@ -27,67 +27,58 @@ const Head = (props) => {
     if (props.element.length === 0) return null;
     let elementsReverse = props.element.slice().reverse();
     return (
-        <div style = {alertsWindow}>
-            <AlertBoxTopInfoStyle>
-             {props.element.length} notifications
-             <AlertBoxClearAllStyle >
-                <button style= {buttonStyle} className="test" 
-                onClick={props.clearAll}> Hide All </button>
-             </AlertBoxClearAllStyle>
-            </AlertBoxTopInfoStyle>
-            <AlertBoxesViewStyle>
-             {elementsReverse}
-            </AlertBoxesViewStyle>
-          </div>
+        <section className={props.className}>
+            <div className="header">
+                {props.element.length} notifications
+                <button className="hideButton"
+                    onClick={props.clearAll}> Hide All </button>
+            </div>
+            <div className="elements">
+                {elementsReverse}
+            </div>
+        </section>
     )
 }
 
-const alertsWindow = {
-  position: 'absolute',
-  bottom: '0px',
-  right: '20px',
-  //width: '264px',
-  //maxHeight: '60vh',
-  //overflow: 'auto',
-  //overflowX: 'hidden'
-}
+const HeadStyled = styled(Head) `
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
 
-const buttonStyle = {
-    backgroundColor: 'rgb(34, 37, 41)',
-    border: '0px'  
-};
+    .header {
+        width: 264px;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: rgb(34, 37, 41);
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 12px;
+        border-top: 1px solid rgb(68, 74, 82);
+        border-bottom : 1px solid rgb(68, 74, 82);
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 
-const AlertBoxTopInfoStyle = styled.section`
-  width: 264px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: rgb(34, 37, 41);
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 12px;
-  border-top: 1px solid rgb(68, 74, 82);
-  border-bottom : 1px solid rgb(68, 74, 82);
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  `
+    .hideButton {
+        color: white;
+        background-color: rgb(34, 37, 41);
+        border: 0px;
+        &:hover {
+                color: rgba(255, 255, 255, 0.6);
+        }
+    }
+    
+    .elements {
+        width: 264px;
+        max-height: 60vh;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+`
 
-  const AlertBoxClearAllStyle = styled.section`
-  color: white; 
-  &:hover .test {
-     color: rgba(255, 255, 255, 0.6);
-  }
-  `
-
-  const AlertBoxesViewStyle = styled.section`
-  width: 264px;
-  max-height: 60vh;
-  overflow: auto;
-  overflow-x: hidden;
-  `
-
-  export default Head;
+export default HeadStyled;

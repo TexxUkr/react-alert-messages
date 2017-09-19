@@ -81,25 +81,23 @@ class App extends Component {
       }
 
       return (
-        <MainStyle>
+        <section className = {this.props.className}>
           <h3> Overview </h3>
           <p> This component allows you to show notifications after user actions, such as creation, deletion or modification of entities in your application. </p>
           < ButtonsBar 
             createAlertBox={this.createAlertBox.bind(this)} 
             clearAllAlerts={this.clearAllAlertBoxes.bind(this)}
           />
-          <div>
-            <Head element={element} clearAll={this.clearAllAlertBoxes.bind(this)}/>
-          </div>
-        </MainStyle>
+          <Head element={element} clearAll={this.clearAllAlertBoxes.bind(this)}/>
+        </section>
       );
     } catch (err) { }
   }
 }
 
-const MainStyle = styled.section`
+const AppStyled = styled(App)`
   padding-left: 10px;
   padding-top: 10px;
   `
 
-export default App;
+export default AppStyled;

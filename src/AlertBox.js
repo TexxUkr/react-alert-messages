@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AlertIcon from './AlertIcon.js';
-import AlertTitle from './AlertTitle.js';
-import AlertMessage from './AlertMessage.js';
-import AlertCloseButton from './AlertCloseButton.js';
+import AlertIcon from './AlertIcon';
+import AlertTitle from './AlertTitle';
+import AlertMessage from './AlertMessage';
+import CloseButton from './AlertCloseButton';
 import styled from 'styled-components';
 
 
@@ -24,72 +24,63 @@ could be shown in case if clicked using onOpenFull method and state
 */
 
 class AlertBox extends Component {
-  constructor(props){
-    super (props);
-    this.state = {
-      fullView: false
+    constructor(props){
+        super (props);
+        this.state = {
+        fullView: false
+        }
     }
-  }
 
-  onOpenFull(){
-    this.setState({
-        fullView: this.state.fullView ? false : true
-    })
-  }
+    onOpenFull = () => {
+        //console.log('full view')
+        this.setState({
+            fullView: this.state.fullView ? false : true
+        });
+    }
 
   render(){
-    try {
+
         //console.log('TasterAlertBox is here. props are:' + this.props.type +' '+ this.props.title +' '+ this.props.message);
         return (
-            <AlertBoxStyle key = {this.props.id} onClick = {this.onOpenFull.bind(this)}>
-                <AlertBoxTopStyle>
-                    <AlertBoxTopLeftStyle>
+            <div className = {this.props.className} key = {this.props.id} >
+                <div className="topStyle">
+                    <div className="topLeftStyle">
                         <AlertIcon type = {this.props.type}/>
                         <AlertTitle title = {this.props.title}/>
-                    </AlertBoxTopLeftStyle>
-                    <AlertCloseButton onClose = {this.props.onClose} id={this.props.id}/>
-                </AlertBoxTopStyle>
-                <AlertMessage message = {this.props.message} fullView = {this.state.fullView}/>
-            </AlertBoxStyle>
+                    </div>
+                    <CloseButton onClick = {this.props.onClose}/>
+                </div>
+                <AlertMessage onClick = {this.onOpenFull} message = {this.props.message} fullView = {this.state.fullView}/>
+            </div>
         );
-    } catch (err) {
-        console.log('ToasterAlertBox error: ' + err)
-        return null;
-    }
+    
   }
 
 }
 
-const AlertBoxStyle = styled.section`
-  width: 264px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: rgba(34, 37, 41, 0.88);
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 12px;
-  border-top: 1px solid rgb(68, 74, 82);
-  border-bottom : 1px solid rgb(68, 74, 82);
+const AlertBoxStyled = styled(AlertBox)`
+    width: 264px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(34, 37, 41, 0.88);
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 12px;
+    border-top: 1px solid rgb(68, 74, 82);
+    border-bottom : 1px solid rgb(68, 74, 82);
+  
+    .topStyle {
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .topLeftStyle {
+        flex-direction: row;
+        display: flex;
+    }
+
 `
 
-const AlertBoxTopStyle =  styled.section`
- flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-`
-const AlertBoxTopLeftStyle = styled.section`
-  flex-direction: row;
-  display: flex;
-`
-
-/* depriicated
-AlertBox.propTypes = {
-    type: React.PropTypes.string,
-    title: React.PropTypes.string,
-    message: React.PropTypes.string,
-    id: React.PropTypes.number
-}
-*/
-export default AlertBox;
+export default AlertBoxStyled;

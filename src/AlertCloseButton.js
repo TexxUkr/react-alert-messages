@@ -3,30 +3,20 @@ import styled from 'styled-components';
 var MdClose = require('react-icons/lib/md/close');
 
 const AlertCloseButton = (props) => {
-    try {
-        return (
-            <AlertBoxButtonStyle>
-                <button style= {buttonStyle} className="test" onClick={props.onClose.bind(props.id)}>
-                    <MdClose/>
-                </button>
-            </AlertBoxButtonStyle>
-        );
-    } catch (err) {
-        console.log('Button error: ' + err)
-        return null;
-    }
+    return (
+        <button className={props.className} onClick={props.onClick}>
+            <MdClose/>
+        </button>
+    );
 }
 
-const buttonStyle = {
-    backgroundColor: 'rgba(34, 37, 41, 0)',
-    border: '0px'  
-};
 
-const AlertBoxButtonStyle = styled.section`
- color: white;
- padding-left: 8px;
- padding-right: 1px;
- align-self: flex-start;
+const AlertCloseButtonStyled = styled(AlertCloseButton)`
+    color: white;
+    padding: 3px;
+    align-self: flex-start;
+    background-color: rgba(34, 37, 41, 0);
+    border: 0px; 
 `
 
-export default AlertCloseButton;
+export default AlertCloseButtonStyled;

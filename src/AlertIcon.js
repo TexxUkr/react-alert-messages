@@ -28,10 +28,7 @@ iconsMapping.set('query', { icon: MdQuery, color: 'rgb(248,167, 64)' });
 iconsMapping.set('warning', { icon: MdWarning, color: 'rgb(248,167, 64)' });
 iconsMapping.set('default', { icon: Default, color: 'grey'});
 
-const AlertIcon = (props) => {
-    if (props == null ) return null;
-    //let type = iconsMapping.has(props.type) ? props.type : 'default';
-    return (
+const AlertIcon = props => (
         <section className={props.className} type= { iconsMapping.has(props.type) ? props.type : 'default'}>
             { 
                 iconsMapping.get( 
@@ -39,8 +36,7 @@ const AlertIcon = (props) => {
                 ).icon()
             }
         </section>
-    );
-}
+    )
 
 const AlertIconStyled = styled(AlertIcon) `
   font-size: 16px;

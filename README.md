@@ -6,6 +6,7 @@ To deploy:
 - git clone https://github.com/TexxUkr/react-alert-messages
 - cd react-alert-messages
 - npm install
+- npm build
 - npm start
 - open 127.0.0.1:3000 in browser  (tested with Chrome and Firefox)
 - enjoy
